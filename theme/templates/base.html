@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+
+    <!-- CSS for syntax highlighting of code snippets -->
+    <link rel="stylesheet" media="(prefers-color-scheme: light)" href="{{ SITEURL }}/theme/gruvbox-light.css">
+    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="{{ SITEURL }}/theme/gruvbox-dark.css">
+
+    <!-- main CSS file -->
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/main.css">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <strong>{{ SITENAME }}</strong>
+        <nav style="display: inline">
+            {% for title, link in MENUITEMS %}
+                <a href="{{ SITEURL }}/{{ link }}">{{title}}</a>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+                {% for page in pages %}
+                    <a href="{{ SITEURL }}/{{ page.url }}">{{page.title}}</a>
+                {% endfor %}
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

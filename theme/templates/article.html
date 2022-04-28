@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block description %}
+Title: {{ article.title }}; Date: {{ article.date.strftime('%Y-%m-%d') }}; Author: {{ article.author }}
+{% endblock %}
+
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+
+{% block head %}
+{% if article.math %}
+    <!-- katex for rendering latex -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"
+        integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB"
+        crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+        integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ article.title }}</h1>
+    <header>
+        <span>{{article.author}}</span>,
+        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+
+	<aside>
+    	{% if article.category %}
+    	    Category:
+    	    <span>
+    	        <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a>
+    	    </span>
+    	{% endif %}
+
+    	{% if article.tags %} 
+    	    Tags:
+    	    {% for tag in article.tags %}
+    	    <span>
+    	        <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>
+    	    </span>
+    	    {% endfor %}
+    	{% endif %}
+    	</aside>
+    </header>
+
+    {{ article.content }}
+</article>
+{% endblock %}

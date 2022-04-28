@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+{% if articles %}
+{% for article in articles_page.object_list %}                
+<article>
+    <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+
+    <header>
+        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+        &nbsp;—&nbsp;
+        <span>{{ article.author }}</span>
+
+        <aside>
+        {% if article.category %}
+            Category:
+            <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a>
+        {% endif %}
+        {% if article.tags %} 
+            Tags:
+            {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>
+                {% if not loop.last %},{% endif %} {# separate with commas if not last item #}
+            {% endfor %}
+        {% endif %}
+        </aside>
+    </header>
+
+    <section class="summary">{{ article.summary }}</section>
+</article>
+<hr>
+{% endfor %} {# For article #}
+{% include 'pagination.html' %}
+{% endif %} {# If articles #}
+{% endblock content %}
