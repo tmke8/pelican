@@ -31,7 +31,7 @@ jobs:
 
       - name: Build
         run: |
-          pelican content
+          poetry run pelican content
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
