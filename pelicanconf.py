@@ -3,7 +3,19 @@ SITENAME = "Minimal blog"
 SITEURL = ""
 THEME = "./theme"
 
-MENUITEMS = [("Home", "index.html"), ("Categories", "categories.html")]
+SLUGIFY_SOURCE = "basename"
+ARTICLE_URL = "posts/{slug}/"
+ARTICLE_SAVE_AS = "posts/{slug}/index.html"
+PAGE_URL = "{slug}/"
+PAGE_SAVE_AS = "{slug}/index.html"
+CATEGORY_URL = "category/{slug}/"
+CATEGORY_SAVE_AS = "category/{slug}/index.html"
+TAG_URL = "tag/{slug}/"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+CATEGORIES_SAVE_AS = "categories/index.html"
+TAGS_SAVE_AS = "tags/index.html"
+
+MENUITEMS = [("Home", "./"), ("Categories", "categories/")]
 DEFAULT_CATEGORY = "Uncategorized"
 PATH = "content"
 DISPLAY_PAGES_ON_MENU = True
