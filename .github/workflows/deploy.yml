@@ -34,7 +34,7 @@ jobs:
 
       - name: Build
         run: |
-          poetry run pelican ./content
+          poetry run pelican --settings publishconf.py ./content
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
