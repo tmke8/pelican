@@ -1,10 +1,14 @@
 Very minimal blog based on pelican
 ==================================
 
+To install dependencies:
+
 .. code:: shell
 
    poetry install 
+   
+Render in browser and watch for changes:
 
 .. code:: shell
 
-   pelican -r -l
+   poetry run pelican -r -l
