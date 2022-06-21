@@ -1,47 +1,40 @@
 :root {
+    /* define some variables */
+
     --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace;
+    --font-serif: Times, "Times New Roman", Georgia, serif;
 
-    /* Light theme */
-    --tx-1: #000000;
-    --tx-2: #1A1A1A;
-    --tx-3: #666666;
-    --bg-1: #FFFFFF;
-    --bg-2: #F6F8FA;
-    --bg-3: #E5E7EB;
-    --lk-1: #0070F3;
-    --lk-2: #0366D6;
-    --lk-tx: #FFFFFF;
-    --ac-1: #79FFE1;
-    --ac-tx: #0C4047;
-
-    /* Dark theme */
-    --d-tx-1: #FFFFFF;
-    --d-tx-2: #EEEEEE;
-    --d-tx-3: #BBBBBB;
-    --d-bg-1: #000000;
-    --d-bg-2: #111111;
-    --d-bg-3: #222222;
-    --d-lk-1: #3291FF;
-    --d-lk-2: #0070F3;
-    --d-lk-tx: #FFFFFF;
-    --d-ac-1: #7928CA;
-    --d-ac-tx: #FFFFFF;
+    /**
+     * Light theme (default)
+     */
+    --headings: #000000;                /* color of headings */
+    --text: #1A1A1A;                    /* color of normal text */
+    --metadata: #666666;                /* color of special text like article date */
+    --background: #FFFFFF;              /* main background color */
+    --contrastive-background: #F6F8FA;  /* background color for special elements like blockquotes */
+    --border: #E5E7EB;                  /* color for lines */
+    --link: #0070F3;                    /* color for links */
+    --link-hover: #0366D6;              /* color for links that the mouse is moving over */
+    --selection-text: #0C4047;          /* color for highlighted text */
+    --selection-background: #79FFE1;    /* background color for highlighted text */
 }
 
 @media (prefers-color-scheme: dark) {
+    /**
+     * Dark theme
+     */
     :root {
-        --tx-1: var(--d-tx-1);
-        --tx-2: var(--d-tx-2);
-        --tx-3: var(--d-tx-3);
-        --bg-1: var(--d-bg-1);
-        --bg-2: var(--d-bg-2);
-        --bg-3: var(--d-bg-3);
-        --lk-1: var(--d-lk-1);
-        --lk-2: var(--d-lk-2);
-        --lk-tx: var(---dlk-tx);
-        --ac-1: var(--d-ac-1);
-        --ac-tx: var(---dac-tx);
+        --headings: #FFFFFF;
+        --text: #C9D1D9;
+        --metadata: #BBBBBB;
+        --background: #0d1117;
+        --contrastive-background: #343a40;
+        --border: #616566;
+        --link: #9ED5E1;
+        --link-hover: #60838A;
+        --selection-background: #7928CA;
+        --selection-text: #FFFFFF;
     }
 }
 
@@ -87,9 +80,18 @@ video {
 
 html {
     /* The base font size from which all other sizes derive */
-    font-size: 16px;
-    /* Set body font family */
-    font-family: var(--font-sans);
+    font-size: 17px;
+}
+/* on mobile screens, we make the base font a bit smaller */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -101,33 +103,34 @@ body {
     overflow-x: hidden;
     word-break: break-word;
     overflow-wrap: break-word;
-    background: var(--bg-1);
+    background: var(--background);
 
+    /* Set body font family */
+    font-family: var(--font-sans);
     /* Main body text */
-    color: var(--tx-2);
-    font-size: 1.03rem;
+    color: var(--text);
     line-height: 1.5;
 }
 
 ::selection {
     /* Set background color for selected text */
-    background: var(--ac-1);
-    color: var(--ac-tx);
+    background: var(--selection-background);
+    color: var(--selection-text);
 }
 
 h1,h2,h3,h4,h5,h6 {
     line-height: 1;
-    color: var(--tx-1);
+    color: var(--headings);
     padding-top: .875rem;
 }
 
 h1,
 h2,
 h3 {
-    color: var(--tx-1);
-    padding-bottom: 2px;
+    color: var(--headings);
+    padding-bottom: 0.1rem;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--bg-2);
+    border-bottom: 1px solid var(--contrastive-background);
 }
 
 h4,
@@ -161,11 +164,11 @@ h6 {
 }
 
 a {
-    color: var(--lk-1);
+    color: var(--link);
 }
 
 a:hover {
-    color: var(--lk-2);
+    color: var(--link-hover);
 }
 
 abbr:hover {
@@ -175,8 +178,8 @@ abbr:hover {
 
 blockquote {
     padding: 1.5rem;
-    background: var(--bg-2);
-    border-left: 5px solid var(--bg-3);
+    background: var(--contrastive-background);
+    border-left: 5px solid var(--border);
 }
 
 abbr {
@@ -189,9 +192,9 @@ blockquote *:last-child {
 }
 
 body>header {
-    background: var(--bg-2);
-    border-bottom: 1px solid var(--bg-3);
-    padding: 2rem 1.5rem;
+    background: var(--contrastive-background);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 1.5rem;
     
     /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
 
@@ -242,8 +245,8 @@ samp,
 kbd,
 pre {
     /* The main preformatted style. This is changed slightly across different cases. */
-    background: var(--bg-2);
-    border: 1px solid var(--bg-3);
+    background: var(--contrastive-background);
+    border: 1px solid var(--border);
     border-radius: 4px;
     padding: 0.25rem 0.5rem;
     /* ↓ font-size is relative to containing element, so it scales for titles*/
@@ -252,7 +255,7 @@ pre {
 
 kbd {
     /* Makes the kbd element look like a keyboard key */
-    border-bottom: 3px solid var(--bg-3);
+    border-bottom: 3px solid var(--border);
 }
 
 pre {
@@ -285,8 +288,8 @@ code pre {
 details {
     /* Make the <details> look more "clickable" */
     padding: .6rem 1rem;
-    background: var(--bg-2);
-    border: 1px solid var(--bg-3);
+    background: var(--contrastive-background);
+    border: 1px solid var(--border);
     border-radius: 4px;
 }
 
@@ -323,14 +326,14 @@ dd::before {
 hr {
     /* Reset the border of the <hr> separator, then set a better line */
     border: 0;
-    border-bottom: 1px solid var(--bg-3);
+    border-bottom: 1px solid var(--border);
     margin: 1rem auto;
 }
 
 fieldset {
     margin-top: 1rem;
     padding: 2rem;
-    border: 1px solid var(--bg-3);
+    border: 1px solid var(--border);
     border-radius: 4px;
 }
 
@@ -346,18 +349,18 @@ table {
 
 td,
 th {
-    border: 1px solid var(--bg-3);
+    border: 1px solid var(--border);
     text-align: left;
     padding: .5rem;
 }
 
 th {
-    background: var(--bg-2);
+    background: var(--contrastive-background);
 }
 
 tr:nth-child(even) {
     /* Set every other cell slightly darker. Improves readability. */
-    background: var(--bg-2);
+    background: var(--contrastive-background);
 }
 
 table caption {
@@ -388,19 +391,19 @@ ol ol {
 }
 
 mark {
-    padding: 3px 6px;
-    background: var(--ac-1);
-    color: var(--ac-tx);
+    padding: .2rem .4rem;
+    background: var(--selection-background);
+    color: var(--selection-text);
 }
 
 textarea,
 select,
 input {
-    padding: 6px 12px;
+    padding: .4rem .75rem;
     margin-bottom: .5rem;
-    background: var(--bg-2);
-    color: var(--tx-2);
-    border: 1px solid var(--bg-3);
+    background: var(--contrastive-background);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box;
@@ -415,12 +418,18 @@ nav a {
 }
 
 article h1 a {
+    color: var(--headings);
     text-decoration: none;
+}
+
+article h1 a:hover {
+    color: var(--headings);
+    text-decoration: underline;
 }
 
 article header {
     font-size: 0.9rem;
     font-style: italic;
-    color: var(--tx-3);
+    color: var(--metadata);
     padding-bottom: 0.5rem;
 }
