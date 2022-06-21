@@ -178,7 +178,7 @@ abbr:hover {
 }
 
 blockquote {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     background: var(--contrastive-background);
     border-left: 5px solid var(--border);
 }

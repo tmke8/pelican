@@ -28,7 +28,7 @@ MARKDOWN = {
         "markdown.extensions.codehilite": {"css_class": "highlight"},  # syntax highlighting
         "markdown.extensions.extra": {},
         "markdown.extensions.meta": {},  # meta data at top of markdown files
-        "markdown.extensions.toc": {"permalink": "#", "toc_depth": 4, "baselevel": 1},
+        "markdown.extensions.toc": {"permalink": "#", "toc_depth": 4, "baselevel": 2},
     },
     "output_format": "html5",
 }

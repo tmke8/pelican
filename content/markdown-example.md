@@ -54,7 +54,7 @@ in chapters 12--14"). Three dots ... will be converted to an ellipsis.
 Unicode is supported. ☺
 
 
-## An h2 header
+# A heading
 
 Here's a numbered list:
 
@@ -91,11 +91,11 @@ for i in range(10):
 
 
 
-### An h3 header ###
+## Another heading ##
 
 Here's a link to [a website](http://foo.bar), to a [local
 doc](local-doc.html), and to a [section heading in the current
-doc](#an-h2-header). Here's a footnote [^1].
+doc](#a-heading). Here's a footnote [^1].
 
 [^1]: Some footnote text.
 
