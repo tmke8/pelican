@@ -11,4 +11,4 @@ Render in browser and watch for changes:
 
 .. code:: shell
 
-   poetry run pelican -r -l
+   poetry run pelican --autoreload --listen
