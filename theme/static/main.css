@@ -98,11 +98,12 @@ body {
     /* Center body in page */
     margin: 0 auto;
     max-width: 47rem;
-    padding: 2rem;
-    border-radius: 0.4rem;
+    padding: 0 1rem;
+
     overflow-x: hidden;
     word-break: break-word;
     overflow-wrap: break-word;
+
     background: var(--background);
 
     /* Set body font family */
@@ -199,7 +200,7 @@ body>header {
     
     /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
 
-    margin: -2rem calc(50% - 50vw) 2rem;
+    margin: 0 calc(50% - 50vw) 2rem;
 
     /* Shorthand for:
 
@@ -369,11 +370,6 @@ table caption {
     margin-bottom: .5rem;
 }
 
-textarea {
-    /* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
-    max-width: 100%;
-}
-
 ol,
 ul {
     /* Replace the browser default padding */
@@ -395,19 +391,6 @@ mark {
     padding: .2rem .4rem;
     background: var(--selection-background);
     color: var(--selection-text);
-}
-
-textarea,
-select,
-input {
-    padding: .4rem .75rem;
-    margin-bottom: .5rem;
-    background: var(--contrastive-background);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    box-shadow: none;
-    box-sizing: border-box;
 }
 
 img {
