@@ -15,7 +15,7 @@ look like:
   * the other one
 
 Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+"content" starts at 4-columns in.
 
 Now a nested list:
 
@@ -107,10 +107,10 @@ And images can be specified like so:
 
 ![duck image](https://i.redd.it/ly76bvst0fq81.jpg)
 
-Inline math equation: \\(\omega = d\phi / dt\\). Display
+Inline math equation: $\omega = d\phi / dt$. Display
 math should get its own line like so:
 
 $$I = \int \rho R^{2} dV$$
 
 And note that you can backslash-escape any punctuation characters
-which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+which you wish to be displayed literally, ex.: ``\`foo\` `` &rarr; \`foo\`, `\*bar\*` &rarr; \*bar\*, etc.

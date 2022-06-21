@@ -122,6 +122,7 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 1;
     color: var(--headings);
     padding-top: .875rem;
+    position: relative;
 }
 
 h1,
@@ -248,7 +249,7 @@ pre {
     background: var(--contrastive-background);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.25rem;
     /* ↓ font-size is relative to containing element, so it scales for titles*/
     font-size: 0.9em;
 }
@@ -432,4 +433,17 @@ article header {
     font-style: italic;
     color: var(--metadata);
     padding-bottom: 0.5rem;
+}
+
+.headerlink {
+    position: absolute;
+    left: -1.5rem;
+    padding-right: 0.5em; /* to avoid a gap */
+    color: transparent;
+    text-decoration: none;
+}
+
+:hover > .headerlink, :hover > .headerlink:visited,
+.headerlink:focus, .headerlink:focus:visited {
+    color: var(--metadata);
 }

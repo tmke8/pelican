@@ -17,7 +17,7 @@ Title: {{ article.title }}; Date: {{ article.date.strftime('%Y-%m-%d') }}; Autho
         crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"
         integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
-        crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});"></script>
 {% endif %}
 {% endblock %}
 

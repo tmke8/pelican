@@ -23,6 +23,16 @@ DISPLAY_PAGES_ON_MENU = True
 TYPOGRIFY = True
 TYPOGRIFY_DASHES = "oldschool"
 
+MARKDOWN = {
+    "extension_configs": {
+        "markdown.extensions.codehilite": {"css_class": "highlight"},  # syntax highlighting
+        "markdown.extensions.extra": {},
+        "markdown.extensions.meta": {},  # meta data at top of markdown files
+        "markdown.extensions.toc": {"permalink": "#", "toc_depth": 4, "baselevel": 1},
+    },
+    "output_format": "html5",
+}
+
 TIMEZONE = "Europe/Berlin"
 
 DEFAULT_LANG = "en"
@@ -35,14 +45,10 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (("Pelican", "https://getpelican.com/"),
-         ("Python.org", "https://www.python.org/"),
-         ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-         ("You can modify those links in your config file", "#"),)
+LINKS = ()
 
 # Social widget
-SOCIAL = (("You can add links in your config file", "#"),
-          ("Another social link", "#"),)
+SOCIAL = ()
 
 DEFAULT_PAGINATION = False
 
