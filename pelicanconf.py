@@ -3,6 +3,8 @@ SITENAME = "Minimal blog"
 SITEURL = ""
 THEME = "./theme"
 
+TEMPLATE_EXTENSIONS = [".html.jinja"]
+
 SLUGIFY_SOURCE = "basename"
 ARTICLE_URL = "posts/{slug}/"
 ARTICLE_SAVE_AS = "posts/{slug}/index.html"

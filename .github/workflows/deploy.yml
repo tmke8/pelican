@@ -29,30 +29,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install poetry
-        run: pipx install poetry
-      - uses: actions/setup-python@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version-file: "pyproject.toml"
 
-      - name: Install dependencies
-        run: |
-          poetry env use 3.10
-          poetry install --no-interaction --no-root
+      - name: Install the project
+        run: uv sync --locked --all-extras --dev
 
       - name: Build
         run: |
-          poetry run pelican --settings publishconf.py ./content
+          uv run pelican --settings publishconf.py ./content
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: './output'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
